@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: api
 spec:
+  replicas: 20
   selector:
     matchLabels:
       app: api
@@ -17,8 +18,8 @@ spec:
           ports:
           - containerPort: 8080
           env:
-          - name: MONGODB_URI
-            value: 'mongodb://mongouser:mongopwd@mongodb:27017/admin'
+            - name: MONGODB_URI
+              value: mongodb://mongouser:mongopwd@mongodb-service:27017/admin
 
 ---
 
